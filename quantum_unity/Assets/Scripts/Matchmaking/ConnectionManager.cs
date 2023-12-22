@@ -3,6 +3,7 @@ using QuantumSoccerTest.Common;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UI = UnityEngine.UI;
 
 namespace QuantumSoccerTest
@@ -10,6 +11,7 @@ namespace QuantumSoccerTest
     public class ConnectionManager : SingletonMonobehavior<ConnectionManager>, IConnectionCallbacks
     {
         [SerializeField] private PhotonServerSettings photonAppSettings;
+        [SerializeField] private UnityEvent OnConnectedToServer;
         // TODO: move UI stuff from connection manager
         [SerializeField] private TMP_InputField nicknameInputField;
         [SerializeField] private TextMeshProUGUI connectionStatusTxt;
@@ -43,11 +45,12 @@ namespace QuantumSoccerTest
         #region Connection Callbacks
         public void OnConnected()
         {
-            connectionStatusTxt.text = "Connected to server!";
         }
 
         public void OnConnectedToMaster()
         {
+            connectionStatusTxt.text = "Connected to server!";
+            OnConnectedToServer?.Invoke();
         }
 
         public void OnCustomAuthenticationFailed(string debugMessage)
