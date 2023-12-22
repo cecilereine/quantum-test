@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dd8e95ae0daaec4496511105240e8a3, type: 3}
   m_Name: AssetResources
   m_EditorClassIdentifier: 
-  AddressablesGroup:
-    _resources: []
   AssetBundlesGroup:
     _resources: []
   ResourcesGroup:
@@ -48,8 +46,23 @@ MonoBehaviour:
         Id:
           Value: 1090595483060781529
       ResourcePath: DB/Map1_mesh
+    - Path: Resources/DB/QuantumSoccer/QuantumGameMap_mesh
+      AssetRef:
+        Id:
+          Value: 1430629037212617631
+      ResourcePath: DB/QuantumSoccer/QuantumGameMap_mesh
     - Path: Resources/DB/Map1
       AssetRef:
         Id:
           Value: 1710471675203725834
       ResourcePath: DB/Map1
+    - Path: Resources/DB/QuantumSoccer/QuantumGameMap
+      AssetRef:
+        Id:
+          Value: 2365825968212652288
+      ResourcePath: DB/QuantumSoccer/QuantumGameMap
+    - Path: Resources/DB/QuantumSoccer/CharacterController3DConfigAsset
+      AssetRef:
+        Id:
+          Value: 4268322265739084293
+      ResourcePath: DB/QuantumSoccer/CharacterController3DConfigAsset
