@@ -1,4 +1,5 @@
 ﻿using Quantum.SoccerTest;
+using Quantum.SoccerTest.Systems;
 
 namespace Quantum {
   public static class SystemSetup {
@@ -19,6 +20,7 @@ namespace Quantum {
 
         // user systems go here 
         new MovementSystem(),
+        new PlayerSetupSystem(),
       };
     }
   }

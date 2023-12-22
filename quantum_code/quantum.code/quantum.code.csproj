@@ -81,7 +81,8 @@
     <Compile Include="RuntimeConfig.User.cs" />
     <Compile Include="RuntimePlayer.User.cs" />
     <Compile Include="SimulationConfig.User.cs" />
-    <Compile Include="SoccerTest\MovementSystem.cs" />
+    <Compile Include="SoccerTest\Systems\MovementSystem.cs" />
+    <Compile Include="SoccerTest\Systems\PlayerSetupSystem.cs" />
     <Compile Include="SystemSetup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -89,7 +90,9 @@
     <EmbeddedResource Include="db.json" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="SoccerTest\input.qtn" />
+    <None Include="SoccerTest\QTN\Game.qtn" />
+    <None Include="SoccerTest\QTN\input.qtn" />
+    <None Include="SoccerTest\QTN\PlayerLink.qtn" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
