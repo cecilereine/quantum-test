@@ -61,11 +61,21 @@ MonoBehaviour:
         Id:
           Value: 2365825968212652288
       ResourcePath: DB/QuantumSoccer/QuantumGameMap
+    - Path: Resources/DB/QuantumSoccer/Ball|EntityView
+      AssetRef:
+        Id:
+          Value: 2802744777364102253
+      ResourcePath: DB/QuantumSoccer/Ball
     - Path: Resources/DB/QuantumSoccer/Player|EntityView
       AssetRef:
         Id:
           Value: 3336278226483575529
       ResourcePath: DB/QuantumSoccer/Player
+    - Path: Resources/DB/QuantumSoccer/Ball|EntityPrototype
+      AssetRef:
+        Id:
+          Value: 3491886485579073047
+      ResourcePath: DB/QuantumSoccer/Ball
     - Path: Resources/DB/QuantumSoccer/Player|EntityPrototype
       AssetRef:
         Id:

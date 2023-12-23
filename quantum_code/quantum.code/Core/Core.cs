@@ -175,7 +175,7 @@ namespace Quantum {
   /// <remarks>See <see cref="PhysicsEngine3D.SetCallbacks"/> for setting the callbacks flags to an entity.</remarks>
   /// </summary>
   /// \ingroup Physics3dApi
-  public interface ISignalOnCollisionEnter3D : ISignal {
+  public interface IKCCCallbacks3D : ISignal {
     /// <summary>
     /// Called once two non-trigger 3D colliders start touching.
     /// </summary>
@@ -314,7 +314,7 @@ namespace Quantum {
 
     // 3D Physics collision signals
     ISignalOnCollision3D[]      _ISignalOnCollision3DSystems;
-    ISignalOnCollisionEnter3D[] _ISignalOnCollisionEnter3DSystems;
+    IKCCCallbacks3D[] _ISignalOnCollisionEnter3DSystems;
     ISignalOnCollisionExit3D[]  _ISignalOnCollisionExit3DSystems;
 
     // 3D Physics trigger signals
@@ -481,7 +481,7 @@ namespace Quantum {
 
       // 3D Physics collision signals
       _ISignalOnCollision3DSystems      = BuildSignalsArray<ISignalOnCollision3D>();
-      _ISignalOnCollisionEnter3DSystems = BuildSignalsArray<ISignalOnCollisionEnter3D>();
+      _ISignalOnCollisionEnter3DSystems = BuildSignalsArray<IKCCCallbacks3D>();
       _ISignalOnCollisionExit3DSystems  = BuildSignalsArray<ISignalOnCollisionExit3D>();
 
       // 3D Physics trigger signals

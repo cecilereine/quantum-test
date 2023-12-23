@@ -90,6 +90,9 @@
     <EmbeddedResource Include="db.json" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="SoccerTest\QTN\Game.qtn" />
     <None Include="SoccerTest\QTN\input.qtn" />
     <None Include="SoccerTest\QTN\PlayerLink.qtn" />
