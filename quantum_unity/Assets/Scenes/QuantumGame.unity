@@ -773,7 +773,7 @@ PrefabInstance:
     - target: {fileID: 7072740796643529499, guid: 9820894e9b5136647ade84e925244125,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.17
+      value: 1.53
       objectReference: {fileID: 0}
     - target: {fileID: 7072740796643529499, guid: 9820894e9b5136647ade84e925244125,
         type: 3}
@@ -814,6 +814,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7361017409671542028, guid: 9820894e9b5136647ade84e925244125,
+        type: 3}
+      propertyPath: Prototype.ballPushPower.RawValue
+      value: 19660800
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

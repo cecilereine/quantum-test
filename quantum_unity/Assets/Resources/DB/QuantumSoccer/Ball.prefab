@@ -109,7 +109,7 @@ MonoBehaviour:
     IsTrigger: 0
     Material:
       Id:
-        Value: 0
+        Value: 3746233970607407490
     SourceCollider: {fileID: 0}
     IsEnabled: 1
     Shape2D:
@@ -277,7 +277,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Prototype:
-    _empty_prototype_dummy_field_: 0
+    ballPushPower:
+      RawValue: 19660800
 --- !u!114 &-3710696973137099268
 MonoBehaviour:
   m_ObjectHideFlags: 0

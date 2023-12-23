@@ -20,7 +20,7 @@
         {
             if(f.TryGet<SoccerBall>(collisionInfo.Other, out var ball)) 
             {
-                f.Destroy(collisionInfo.Other);
+                f.Signals.OnBallHit(collisionInfo.Other, collisionInfo.Entity);
             }
         }
     }

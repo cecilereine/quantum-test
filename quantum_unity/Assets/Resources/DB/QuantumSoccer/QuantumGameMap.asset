@@ -251,7 +251,10 @@ MonoBehaviour:
   Prototypes:
   - PlayerLink: []
     SoccerBall:
-    - _empty_prototype_dummy_field_: 0
+    - ballPushPower:
+        RawValue: 19660800
+      lastPlayerToHit:
+        _index: 0
     CharacterController2D: []
     CharacterController3D: []
     NavMeshAvoidanceAgent: []
@@ -317,7 +320,7 @@ MonoBehaviour:
       IsTrigger: 0
       PhysicsMaterial:
         Id:
-          Value: 0
+          Value: 3746233970607407490
     PhysicsCallbacks2D: []
     PhysicsCallbacks3D:
     - CallbackFlags:
@@ -329,7 +332,7 @@ MonoBehaviour:
         X:
           RawValue: 0
         Y:
-          RawValue: 207749
+          RawValue: 100270
         Z:
           RawValue: 0
       Rotation:

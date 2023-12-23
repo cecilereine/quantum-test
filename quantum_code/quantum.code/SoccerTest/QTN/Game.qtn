@@ -1,2 +1,7 @@
 component SoccerBall
-{}
+{
+	FP ballPushPower;
+	player_ref lastPlayerToHit;
+}
+
+signal OnBallHit(EntityRef ball, EntityRef player);
