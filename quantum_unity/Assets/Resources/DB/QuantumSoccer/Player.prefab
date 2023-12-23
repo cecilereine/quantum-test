@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1829262063102164829}
   - component: {fileID: 4584158944435479874}
   - component: {fileID: 2991508324469565864}
+  - component: {fileID: 567292333471787632}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -225,10 +226,35 @@ MonoBehaviour:
   ErrorRotationTeleportDistance: 0.5
   OnEntityInstantiated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 567292333471787632}
+        m_TargetAssemblyTypeName: QuantumSoccerTest.PlayerView, Assembly-CSharp
+        m_MethodName: Initialize
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnEntityDestroyed:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &567292333471787632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2790715429676697315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6915df4edccc188429631b4e1d15aae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entityView: {fileID: 2991508324469565864}
 --- !u!1 &5925461956964507616
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,10 +3,9 @@ using QuantumSoccerTest.Common;
 using System;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
-using UI = UnityEngine.UI;
+using UnityEngine.UI;
 
 namespace QuantumSoccerTest
 {
@@ -16,7 +15,7 @@ namespace QuantumSoccerTest
         // TODO: move UI stuff from connection manager
         [SerializeField] private TMP_InputField nicknameInputField;
         [SerializeField] private TextMeshProUGUI connectionStatusTxt;
-        [SerializeField] private UI.Button connectBtn;
+        [SerializeField] private Button connectBtn;
 
         public static QuantumLoadBalancingClient Client { get; private set; }
 
@@ -24,7 +23,6 @@ namespace QuantumSoccerTest
         {
             Client = new QuantumLoadBalancingClient()
             {
-                NickName = nicknameInputField.text,
                 UserId = Guid.NewGuid().ToString(),
             };
 
@@ -33,6 +31,8 @@ namespace QuantumSoccerTest
 
         public void ConnectToServer()
         {
+            Client.NickName = nicknameInputField.text;
+
             connectBtn.interactable = false;
             connectionStatusTxt.text = "Connecting...";
             var appSettings = PhotonServerSettings.Instance.AppSettings;

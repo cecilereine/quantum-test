@@ -16,6 +16,7 @@ namespace QuantumSoccerTest
             foreach (var localPlayer in game.GetLocalPlayers())
             {
                 Debug.Log("CustomCallbacks - sending player: " + localPlayer);
+                PlayerData.NickName = ConnectionManager.Client.NickName;
                 game.SendPlayerData(localPlayer, PlayerData);
             }
         }
