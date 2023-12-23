@@ -300,6 +300,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Prototype:
+    hasSpawned:
+      Value: 0
     ballPrefab:
       Id:
         Value: 3491886485579073047
