@@ -81,6 +81,7 @@
     <Compile Include="RuntimeConfig.User.cs" />
     <Compile Include="RuntimePlayer.User.cs" />
     <Compile Include="SimulationConfig.User.cs" />
+    <Compile Include="SoccerTest\Components\BallSpawner.cs" />
     <Compile Include="SoccerTest\Systems\BallMovementSystem.cs" />
     <Compile Include="SoccerTest\Systems\MovementSystem.cs" />
     <Compile Include="SoccerTest\Systems\PlayerSetupSystem.cs" />

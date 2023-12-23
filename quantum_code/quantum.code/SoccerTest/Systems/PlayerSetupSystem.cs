@@ -9,13 +9,30 @@ namespace Quantum.SoccerTest.Systems
             var data = f.GetPlayerData(playerRef);
             var prototype = f.FindAsset<EntityPrototype>(data.CharacterPrototype.Id.Value);
             var entity = f.Create(prototype);
-
+            
             var playerLink = new PlayerLink()
             {
                 Player = playerRef,
             };
             f.Add(entity, playerLink);
             SpawnPlayerAtRandomPos(f, entity);
+
+            // spawn ball
+            var playerCount = f.ComponentCount<PlayerLink>();
+            Log.Debug("no of players: " + playerCount);
+            if (playerCount > 1)
+            {
+                SpawnBall(f);
+            }
+        }
+
+        private void SpawnBall(Frame f)
+        {
+            if (f.TryGetSingleton<BallSpawner>(out var ballSpawner) && !ballSpawner.hasSpawned)
+            {
+                ballSpawner.Spawn(f);
+                ballSpawner.hasSpawned = true;
+            }
         }
 
         private void SpawnPlayerAtRandomPos(Frame f, EntityRef entity)

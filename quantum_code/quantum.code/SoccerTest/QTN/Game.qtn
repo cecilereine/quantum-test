@@ -4,4 +4,11 @@ component SoccerBall
 	player_ref lastPlayerToHit;
 }
 
+singleton component BallSpawner
+{
+	bool hasSpawned;
+	asset_ref<EntityPrototype> ballPrefab;
+}
+
 signal OnBallHit(EntityRef ball, EntityRef player);
+signal OnBallSpawn();
