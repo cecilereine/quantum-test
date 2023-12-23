@@ -1,7 +1,9 @@
 using Photon.Realtime;
 using QuantumSoccerTest.Common;
+using System;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UI = UnityEngine.UI;
@@ -24,6 +26,7 @@ namespace QuantumSoccerTest
             Client = new QuantumLoadBalancingClient()
             {
                 NickName = nicknameInputField.text,
+                UserId = Guid.NewGuid().ToString(),
             };
 
             Client.AddCallbackTarget(this);

@@ -1,12 +1,16 @@
+using ExitGames.Client.Photon;
 using Photon.Realtime;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using UnityEngine;
-
+using UnityEngine.Events;
 
 namespace QuantumSoccerTest
 {
     public class MatchmakingHandler : MonoBehaviour, IMatchmakingCallbacks
     {
+        [SerializeField] private UnityEvent OnRoomJoined;
+
         public void Initialize()
         {
             ConnectionManager.Client.AddCallbackTarget(this);
@@ -30,6 +34,7 @@ namespace QuantumSoccerTest
         public void OnJoinedRoom()
         {
             Debug.Log("room joined");
+            OnRoomJoined?.Invoke();
         }
 
         public void OnJoinRandomFailed(short returnCode, string message)
@@ -47,8 +52,14 @@ namespace QuantumSoccerTest
 
         private void JoinOrCreateRoom()
         {
-            // TODO: max 4 players
-            ConnectionManager.Client.OpJoinRandomOrCreateRoom(null, null);
+            var roomParams = new EnterRoomParams
+            { 
+                RoomOptions = new RoomOptions
+                {
+                    MaxPlayers = 4,
+                }
+            };
+            ConnectionManager.Client.OpJoinRandomOrCreateRoom(null, roomParams);
         }
     }
 }
