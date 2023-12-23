@@ -12,7 +12,6 @@ namespace QuantumSoccerTest
 {
     public class ConnectionManager : SingletonMonobehavior<ConnectionManager>, IConnectionCallbacks
     {
-        [SerializeField] private PhotonServerSettings photonAppSettings;
         [SerializeField] private UnityEvent OnConnectedToServer;
         // TODO: move UI stuff from connection manager
         [SerializeField] private TMP_InputField nicknameInputField;
@@ -36,13 +35,17 @@ namespace QuantumSoccerTest
         {
             connectBtn.interactable = false;
             connectionStatusTxt.text = "Connecting...";
-            if (!Client.IsConnected && !Client.ConnectUsingSettings(photonAppSettings.AppSettings))
+            var appSettings = PhotonServerSettings.Instance.AppSettings;
+
+            if (!Client.IsConnected && !Client.ConnectUsingSettings(appSettings))
             {
                 Debug.Log("Failed to connect to master server");
                 connectBtn.interactable = true;
                 Client.Disconnect();
                 return;
             }
+
+            Debug.Log($"{Client.AppId}, {Client.CloudRegion}");
         }
 
         #region Connection Callbacks
