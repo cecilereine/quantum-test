@@ -1,7 +1,12 @@
 component SoccerBall
 {
 	FP ballPushPower;
-	player_ref lastPlayerToHit;
+	entity_ref lastPlayerToHit;
+	FPVector3 spawnPosition;
+}
+
+component Goal
+{
 }
 
 singleton component BallSpawner
@@ -12,3 +17,10 @@ singleton component BallSpawner
 
 signal OnBallHit(EntityRef ball, EntityRef player);
 signal OnBallSpawn();
+signal OnBallReset(EntityRef ball);
+
+event OnScoreUpdated
+{
+	player_ref playerRef;
+	FP score;
+}

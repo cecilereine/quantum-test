@@ -974,7 +974,11 @@ MonoBehaviour:
     SimulationConfig:
       Id:
         Value: 0
-  Players: []
+  Players:
+  - NickName: player
+    CharacterPrototype:
+      Id:
+        Value: 4232055110062957264
   PreloadAddressables: 0
   DynamicAssetDB:
     OnInitialDynamicAssetsRequested:
@@ -1188,7 +1192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!114 &1051030644106888956 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6529641661700092023, guid: 687e522608134e040a1986899855e90f,
+  m_CorrespondingSourceObject: {fileID: 7174842429351881493, guid: 687e522608134e040a1986899855e90f,
     type: 3}
   m_PrefabInstance: {fileID: 1051030644106888953}
   m_PrefabAsset: {fileID: 0}

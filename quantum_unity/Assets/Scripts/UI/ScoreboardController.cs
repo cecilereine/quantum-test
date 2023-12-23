@@ -1,3 +1,4 @@
+using Quantum;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,6 +25,26 @@ namespace QuantumSoccerTest.UI
             {
                 entry.SetEntry(nickname, score);
             }
+        }
+
+        private void OnScoreUpdated(EventOnScoreUpdated callback)
+        {
+            Debug.Log("event updated");
+            var f = QuantumRunner.Default.Game.Frames.Verified;
+            var playerData = f.GetPlayerData(callback.playerRef);
+            var nickname = playerData.NickName;
+            UpdateEntry(nickname, (int)callback.score);
+        }
+
+        private void OnEnable()
+        {
+            QuantumEvent.Subscribe<EventOnScoreUpdated>(this, OnScoreUpdated);
+        }
+
+        private void OnDisable()
+        {
+            QuantumEvent.UnsubscribeListener<EventOnScoreUpdated>(this);
+
         }
     }
 }

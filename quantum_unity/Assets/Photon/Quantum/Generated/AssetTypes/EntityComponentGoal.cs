@@ -4,5 +4,5 @@
 // </auto-generated>
 
 [UnityEngine.DisallowMultipleComponent()]
-public partial class EntityComponentSoccerBall : EntityComponentBase<Quantum.Prototypes.SoccerBall_Prototype, Quantum.Prototypes.Unity.SoccerBall_Prototype> {
+public partial class EntityComponentGoal : EntityComponentBase<Quantum.Prototypes.Goal_Prototype> {
 }

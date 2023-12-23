@@ -6,6 +6,22 @@
 using System;
 namespace Quantum.Prototypes.Unity {
   [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.SoccerBall))]
+  public class SoccerBall_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.SoccerBall_Prototype> {
+    public Photon.Deterministic.FP ballPushPower;
+    [Quantum.LocalReference]
+    public global::EntityPrototype lastPlayerToHit;
+    public Photon.Deterministic.FPVector3 spawnPosition;
+
+    public sealed override Quantum.Prototypes.SoccerBall_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.SoccerBall_Prototype();
+      result.ballPushPower = this.ballPushPower;
+      converter.Convert(this.lastPlayerToHit, out result.lastPlayerToHit);
+      result.spawnPosition = this.spawnPosition;
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
   [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.PhysicsJoints3D))]
   public class PhysicsJoints3D_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.PhysicsJoints3D_Prototype> {
     [Quantum.Inspector.DynamicCollectionAttribute()]

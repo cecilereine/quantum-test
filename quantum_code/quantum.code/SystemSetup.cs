@@ -22,6 +22,7 @@ namespace Quantum {
         new MovementSystem(),
         new PlayerSetupSystem(),
         new BallMovementSystem(),
+        new BallScoringSystem(),
       };
     }
   }

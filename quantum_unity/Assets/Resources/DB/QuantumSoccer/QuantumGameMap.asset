@@ -250,6 +250,8 @@ MonoBehaviour:
     MapEntities: []
   Prototypes:
   - BallSpawner: []
+    Goal:
+    - _empty_prototype_dummy_field_: 0
     PlayerLink: []
     SoccerBall: []
     CharacterController2D: []
@@ -292,14 +294,14 @@ MonoBehaviour:
         CompoundShapes: []
         IsSetFromSourceCollider: 0
       Layer: 0
-      IsTrigger: 0
+      IsTrigger: 1
       PhysicsMaterial:
         Id:
           Value: 0
     PhysicsCallbacks2D: []
     PhysicsCallbacks3D:
     - CallbackFlags:
-        Value: 0
+        Value: 128
     Transform2D: []
     Transform2DVertical: []
     Transform3D:
@@ -307,7 +309,7 @@ MonoBehaviour:
         X:
           RawValue: -589824
         Y:
-          RawValue: 122552
+          RawValue: 89784
         Z:
           RawValue: 0
       Rotation:
@@ -326,6 +328,7 @@ MonoBehaviour:
       ballPrefab:
         Id:
           Value: 3491886485579073047
+    Goal: []
     PlayerLink: []
     SoccerBall: []
     CharacterController2D: []

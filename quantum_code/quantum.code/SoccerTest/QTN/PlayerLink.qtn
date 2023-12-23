@@ -1,4 +1,5 @@
 component PlayerLink
 {
+	FP score;
 	player_ref Player;
 }
