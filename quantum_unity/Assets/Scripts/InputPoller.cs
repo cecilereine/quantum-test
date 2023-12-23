@@ -12,6 +12,7 @@ namespace QuantumSoccerTest
             var x = UnityEngine.Input.GetAxis("Horizontal");
             var y = UnityEngine.Input.GetAxis("Vertical");
 
+            input.Block = UnityEngine.Input.GetButton("Jump");
             input.Direction = new Vector2(x, y).ToFPVector2();
             callback.SetInput(input, DeterministicInputFlags.Repeatable);
         }

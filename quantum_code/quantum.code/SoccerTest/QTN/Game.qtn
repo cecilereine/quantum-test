@@ -16,8 +16,10 @@ singleton component BallSpawner
 }
 
 signal OnBallHit(EntityRef ball, EntityRef player);
+signal OnBallBlocked(EntityRef ball, EntityRef player);
 signal OnBallSpawn();
 signal OnBallReset(EntityRef ball);
+signal OnRoundReset(EntityRef player);
 
 event OnGameOver
 {}

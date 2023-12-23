@@ -13,6 +13,7 @@ namespace Quantum.SoccerTest.Systems
             var playerLink = new PlayerLink()
             {
                 Player = playerRef,
+                isBlockEnabled = true,
             };
             f.Add(entity, playerLink);
             SpawnPlayerAtRandomPos(f, entity);

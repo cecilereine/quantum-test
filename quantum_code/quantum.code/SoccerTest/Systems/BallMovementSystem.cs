@@ -2,8 +2,27 @@
 
 namespace Quantum.SoccerTest.Systems
 {
-    public unsafe class BallMovementSystem : SystemMainThread, ISignalOnBallHit, ISignalOnBallReset
+    public unsafe class BallMovementSystem : SystemMainThread, ISignalOnBallHit, ISignalOnBallReset, ISignalOnBallBlocked
     {
+        public void OnBallBlocked(Frame f, EntityRef ball, EntityRef player)
+        {
+            var playerLink = f.Unsafe.GetPointer<PlayerLink>(player);
+            if (!playerLink->isBlockEnabled)
+            {
+                return;
+            }
+            var ballPhysicsBody = f.Unsafe.GetPointer<PhysicsBody3D>(ball);
+            var ballProp = f.Unsafe.GetPointer<SoccerBall>(ball);
+            var ballTrans = f.Unsafe.GetPointer<Transform3D>(ball);
+            var playerTrans = f.Unsafe.GetPointer<Transform3D>(player);
+            var distance = FPVector3.Distance(ballTrans->Position, playerTrans->Position);
+            if(distance <= 3)
+            {
+                ballPhysicsBody->AddForce(-FPVector3.Forward * ballProp->ballPushPower);
+                playerLink->isBlockEnabled = false;
+            }
+        }
+
         public void OnBallHit(Frame f, EntityRef ball, EntityRef player)
         {
             var ballPhysicsBody = f.Unsafe.GetPointer<PhysicsBody3D>(ball);

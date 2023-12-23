@@ -1,4 +1,5 @@
 input
 {
+	button Block;
 	FPVector2 Direction;
 }

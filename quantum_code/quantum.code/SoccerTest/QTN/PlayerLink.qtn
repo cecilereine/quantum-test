@@ -1,5 +1,6 @@
 component PlayerLink
 {
 	FP score;
+	bool isBlockEnabled;
 	player_ref Player;
 }

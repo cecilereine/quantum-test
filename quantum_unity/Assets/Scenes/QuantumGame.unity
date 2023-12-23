@@ -152,6 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d477d3ac2698cf40a022a7c6090aa81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameplaySceneName: QuantumGame
+  mainMenuSceneName: MainMenu
 --- !u!4 &53225923
 Transform:
   m_ObjectHideFlags: 0
