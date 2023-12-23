@@ -57,7 +57,7 @@ MonoBehaviour:
         Y:
           RawValue: 57016
         Z:
-          RawValue: 0
+          RawValue: 327680
       PhysicsMaterial:
         Id:
           Value: 0
@@ -70,7 +70,7 @@ MonoBehaviour:
         Y:
           RawValue: 6553
         Z:
-          RawValue: 327680
+          RawValue: 655360
       SmoothSphereMeshCollisions: 0
       StaticData:
         Name: Floor
@@ -98,7 +98,7 @@ MonoBehaviour:
         Y:
           RawValue: 220856
         Z:
-          RawValue: 0
+          RawValue: 327680
       PhysicsMaterial:
         Id:
           Value: 0
@@ -111,7 +111,7 @@ MonoBehaviour:
         Y:
           RawValue: 163840
         Z:
-          RawValue: 327680
+          RawValue: 655360
       SmoothSphereMeshCollisions: 0
       StaticData:
         Name: Wall_Left
@@ -139,7 +139,7 @@ MonoBehaviour:
         Y:
           RawValue: 220856
         Z:
-          RawValue: 0
+          RawValue: 327680
       PhysicsMaterial:
         Id:
           Value: 0
@@ -152,7 +152,7 @@ MonoBehaviour:
         Y:
           RawValue: 163840
         Z:
-          RawValue: 327680
+          RawValue: 655360
       SmoothSphereMeshCollisions: 0
       StaticData:
         Name: Wall_Right
@@ -180,7 +180,7 @@ MonoBehaviour:
         Y:
           RawValue: 220856
         Z:
-          RawValue: 327680
+          RawValue: 983040
       PhysicsMaterial:
         Id:
           Value: 0
@@ -277,9 +277,9 @@ MonoBehaviour:
             RawValue: 0
         BoxExtents:
           X:
-            RawValue: 32768
+            RawValue: 131072
           Y:
-            RawValue: 32768
+            RawValue: 65536
           Z:
             RawValue: 32768
         RotationOffset:
@@ -307,11 +307,11 @@ MonoBehaviour:
     Transform3D:
     - Position:
         X:
-          RawValue: -589824
-        Y:
-          RawValue: 89784
-        Z:
           RawValue: 0
+        Y:
+          RawValue: 122552
+        Z:
+          RawValue: 917504
       Rotation:
         X:
           RawValue: 0

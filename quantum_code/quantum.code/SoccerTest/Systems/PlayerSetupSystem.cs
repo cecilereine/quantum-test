@@ -20,7 +20,7 @@ namespace Quantum.SoccerTest.Systems
             // spawn ball
             var playerCount = f.ComponentCount<PlayerLink>();
             Log.Debug("no of players: " + playerCount);
-            if (playerCount > 1)
+            if (playerCount > 0)
             {
                 SpawnBall(f);
             }
@@ -37,11 +37,12 @@ namespace Quantum.SoccerTest.Systems
 
         private void SpawnPlayerAtRandomPos(Frame f, EntityRef entity)
         {
+            // TODO: modify seed
             // spawn player at a random pos at the back of the room
-            var maxX = 4;
-            var minX = -4;
-            var minZ = 1;
-            var maxZ = 4;
+            var maxX = 10;
+            var minX = -10;
+            var minZ = -5;
+            var maxZ = -2;
             var y = 2;
 
             var rndX = f.RNG->NextInclusive(minX, maxX);

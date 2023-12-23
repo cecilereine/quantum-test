@@ -19,6 +19,9 @@ signal OnBallHit(EntityRef ball, EntityRef player);
 signal OnBallSpawn();
 signal OnBallReset(EntityRef ball);
 
+event OnGameOver
+{}
+
 event OnScoreUpdated
 {
 	player_ref playerRef;

@@ -16,6 +16,13 @@
 
                 f.Signals.OnBallReset(info.Other);
                 f.Events.OnScoreUpdated(playerLink->Player, playerLink->score);
+
+                // TODO: reset players as well
+
+                if (playerLink->score >= 1)
+                {
+                    f.Events.OnGameOver();
+                }
             }
         }
     }
