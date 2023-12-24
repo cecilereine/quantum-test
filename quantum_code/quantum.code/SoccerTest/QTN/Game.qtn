@@ -22,7 +22,10 @@ signal OnBallReset(EntityRef ball);
 signal OnRoundReset(EntityRef player);
 
 event OnGameOver
-{}
+{
+	player_ref playerRef;
+	FP winCount;
+}
 
 event OnScoreUpdated
 {

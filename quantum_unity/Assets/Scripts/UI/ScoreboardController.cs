@@ -44,7 +44,6 @@ namespace QuantumSoccerTest.UI
         private void OnDisable()
         {
             QuantumEvent.UnsubscribeListener<EventOnScoreUpdated>(this);
-
         }
     }
 }

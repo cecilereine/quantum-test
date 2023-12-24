@@ -18,9 +18,12 @@
                 f.Signals.OnRoundReset(ball.lastPlayerToHit);
                 f.Events.OnScoreUpdated(playerLink->Player, playerLink->score);
 
-                if (playerLink->score >= 3)
+                var data = f.GetPlayerData(playerLink->Player);
+                data.WinCount++;
+
+                if (playerLink->score >= 1)
                 {
-                    f.Events.OnGameOver();
+                    f.Events.OnGameOver(playerLink->Player, data.WinCount);
                 }
             }
         }

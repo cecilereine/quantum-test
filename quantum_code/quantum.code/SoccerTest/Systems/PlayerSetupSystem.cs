@@ -21,7 +21,7 @@ namespace Quantum.SoccerTest.Systems
             // spawn ball
             var playerCount = f.ComponentCount<PlayerLink>();
             Log.Debug("no of players: " + playerCount);
-            if (playerCount > 1)
+            if (playerCount > 0)
             {
                 SpawnBall(f);
             }
