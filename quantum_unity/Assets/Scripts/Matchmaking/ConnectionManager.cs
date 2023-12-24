@@ -1,10 +1,12 @@
 using Photon.Realtime;
 using QuantumSoccerTest.Common;
+using QuantumSoccerTest.UI;
 using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace QuantumSoccerTest
@@ -42,10 +44,15 @@ namespace QuantumSoccerTest
 
             if (!Client.IsConnected && !Client.ConnectUsingSettings(appSettings))
             {
-                Debug.Log("Failed to connect to master server");
+                connectionStatusTxt.text = "Failed to connect to master server";
                 connectBtn.interactable = true;
                 Client.Disconnect();
                 return;
+            }
+
+            if (BasicPopupController.Instance != null)
+            {
+                BasicPopupController.Instance.HidePopup();
             }
 
             Debug.Log($"{Client.AppId}, {Client.CloudRegion}");
@@ -76,6 +83,11 @@ namespace QuantumSoccerTest
 
         public void OnDisconnected(DisconnectCause cause)
         {
+            if (SceneManager.GetActiveScene().name == "MainMenu")
+            {
+                BasicPopupController.Instance.ShowPopup("connecting to server...");
+                ConnectToServer();
+            }
         }
 
         public void OnRegionListReceived(RegionHandler regionHandler)

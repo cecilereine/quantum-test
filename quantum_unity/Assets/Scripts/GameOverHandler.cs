@@ -1,5 +1,6 @@
 using Photon.Realtime;
 using Quantum;
+using QuantumSoccerTest.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,9 +25,12 @@ namespace QuantumSoccerTest
 
         private void OnGameOver(EventOnGameOver callback)
         {
-            //TODO: add ui 
-            ConnectionManager.Client.Disconnect();
-            QuantumRunner.ShutdownAll();
+            BasicPopupController.Instance.OnSubmit += () =>
+            {
+                QuantumRunner.ShutdownAll();
+                ConnectionManager.Client.Disconnect();
+            };
+            BasicPopupController.Instance.ShowPopup("GAME OVER", "MENU");
         }
 
         private IEnumerator LoadMainSceneProgress()
@@ -35,23 +39,21 @@ namespace QuantumSoccerTest
             { 
                 yield return null;
             }
-            Debug.Log("main scene has loaded.");
             UnloadGameScene();
         }
 
         private IEnumerator UnloadGameSceneProgress()
         {
-            Debug.Log("unloading gamescene");
             while (!sceneLoadingOp.isDone)
             {
                 yield return null;
             }
-            Debug.Log("establish connection");
         }
 
         private void UnloadGameScene()
         {
             ConnectionManager.Instance.ConnectToServer(true);
+            BasicPopupController.Instance.HidePopup();
 
             sceneLoadingOp = SceneManager.UnloadSceneAsync(gameplaySceneName);
             StartCoroutine(UnloadGameSceneProgress());
@@ -81,6 +83,7 @@ namespace QuantumSoccerTest
         public void OnCustomAuthenticationFailed(string debugMessage)
         {
         }
+
         private void OnEnable()
         {
             QuantumEvent.Subscribe<EventOnGameOver>(this, OnGameOver);

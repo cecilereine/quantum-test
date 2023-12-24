@@ -1,4 +1,5 @@
 using Photon.Realtime;
+using QuantumSoccerTest.UI;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -32,7 +33,7 @@ namespace QuantumSoccerTest
 
         public void OnJoinedRoom()
         {
-            Debug.Log("room joined");
+            BasicPopupController.Instance.HidePopup();
             OnRoomJoined?.Invoke();
         }
 
@@ -51,6 +52,7 @@ namespace QuantumSoccerTest
 
         private void JoinOrCreateRoom()
         {
+            BasicPopupController.Instance.ShowPopup("Joining room...");
             var roomParams = new EnterRoomParams
             { 
                 RoomOptions = new RoomOptions
@@ -61,6 +63,8 @@ namespace QuantumSoccerTest
             
             if (!ConnectionManager.Client.OpJoinRandomOrCreateRoom(null, roomParams))
             {
+                BasicPopupController.Instance.ShowPopup("Failed to join room");
+                ConnectionManager.Instance.ConnectToServer();
                 Debug.Log("failed to join room");
             }
         }
