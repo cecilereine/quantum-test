@@ -19,7 +19,6 @@ namespace QuantumSoccerTest
         public void LoadMenu()
         {
             sceneLoadingOp = SceneManager.LoadSceneAsync(mainMenuSceneName, LoadSceneMode.Additive);
-            //sceneLoadingOp.Add(SceneManager.LoadSceneAsync(mainMenuSceneName, LoadSceneMode.Additive));
             StartCoroutine(LoadMainSceneProgress());
         }
 
@@ -28,7 +27,7 @@ namespace QuantumSoccerTest
             //TODO: add ui 
             ConnectionManager.Client.Disconnect();
             QuantumRunner.ShutdownAll(true);
-            LoadMenu();
+            //LoadMenu();
         }
 
         private IEnumerator LoadMainSceneProgress()
@@ -38,24 +37,25 @@ namespace QuantumSoccerTest
                 yield return null;
             }
             Debug.Log("main scene has loaded.");
-            UnloadGameSceneProgress();
-
+            UnloadGameScene();
         }
 
-        private void UnloadGameSceneProgress()
+        private IEnumerator UnloadGameSceneProgress()
         {
-            SceneManager.UnloadSceneAsync(gameplaySceneName);
+            Debug.Log("unloading gamescene");
+            while (!sceneLoadingOp.isDone)
+            {
+                yield return null;
+            }
+            Debug.Log("establish connection");
         }
 
-        private void OnEnable()
+        private void UnloadGameScene()
         {
-            QuantumEvent.Subscribe<EventOnGameOver>(this, OnGameOver);
-        }
+            ConnectionManager.Instance.ConnectToServer(true);
 
-        private void OnDisable()
-        {
-            QuantumEvent.UnsubscribeListener<EventOnGameOver>(this);
-
+            sceneLoadingOp = SceneManager.UnloadSceneAsync(gameplaySceneName);
+            StartCoroutine(UnloadGameSceneProgress());
         }
 
         public void OnConnected()
@@ -68,6 +68,7 @@ namespace QuantumSoccerTest
 
         public void OnDisconnected(DisconnectCause cause)
         {
+            LoadMenu();
         }
 
         public void OnRegionListReceived(RegionHandler regionHandler)
@@ -80,6 +81,17 @@ namespace QuantumSoccerTest
 
         public void OnCustomAuthenticationFailed(string debugMessage)
         {
+        }
+        private void OnEnable()
+        {
+            QuantumEvent.Subscribe<EventOnGameOver>(this, OnGameOver);
+            ConnectionManager.Client.AddCallbackTarget(this);
+        }
+
+        private void OnDisable()
+        {
+            QuantumEvent.UnsubscribeListener<EventOnGameOver>(this);
+            ConnectionManager.Client.RemoveCallbackTarget(this);
         }
     }
 }

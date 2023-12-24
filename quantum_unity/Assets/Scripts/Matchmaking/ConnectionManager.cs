@@ -17,6 +17,8 @@ namespace QuantumSoccerTest
         [SerializeField] private TextMeshProUGUI connectionStatusTxt;
         [SerializeField] private Button connectBtn;
 
+        private bool connectedFromGameScene;
+
         public static QuantumLoadBalancingClient Client { get; private set; }
 
         public void Initialize()
@@ -29,8 +31,9 @@ namespace QuantumSoccerTest
             Client.AddCallbackTarget(this);
         }
 
-        public void ConnectToServer()
+        public void ConnectToServer(bool fromMainScene = false)
         {
+            connectedFromGameScene = fromMainScene;
             Client.NickName = nicknameInputField.text;
 
             connectBtn.interactable = false;
@@ -56,6 +59,10 @@ namespace QuantumSoccerTest
         public void OnConnectedToMaster()
         {
             connectionStatusTxt.text = "Connected to server!";
+            if (connectedFromGameScene)
+            {
+                return;
+            }
             OnConnectedToServer?.Invoke();
         }
 
