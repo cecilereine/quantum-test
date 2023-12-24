@@ -3,6 +3,7 @@ using QuantumSoccerTest.UI;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 namespace QuantumSoccerTest
 {
@@ -20,7 +21,6 @@ namespace QuantumSoccerTest
         #region Matchmaking Callbacks
         public void OnCreatedRoom()
         {
-            Debug.Log("room created");
         }
 
         public void OnCreateRoomFailed(short returnCode, string message)
@@ -65,12 +65,12 @@ namespace QuantumSoccerTest
             {
                 BasicPopupController.Instance.ShowPopup("Failed to join room");
                 ConnectionManager.Instance.ConnectToServer();
-                Debug.Log("failed to join room");
             }
         }
 
         private void Start()
         {
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName("MainMenu"));
             if (!isInitializedAtStart)
             {
                 return;

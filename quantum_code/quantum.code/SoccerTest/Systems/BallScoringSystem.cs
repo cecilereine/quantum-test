@@ -1,4 +1,6 @@
-﻿namespace Quantum.SoccerTest.Systems
+﻿using static Quantum.SoccerTest.MovementSystem;
+
+namespace Quantum.SoccerTest.Systems
 {
     public unsafe class BallScoringSystem : SystemSignalsOnly, ISignalOnTriggerEnter3D
     {
@@ -24,7 +26,19 @@
                 {
                     data.WinCount++;
                     f.Events.OnGameOver(playerLink->Player, data.WinCount);
+                    DestroyPlayers(f);
                 }
+            }
+        }
+
+        private void DestroyPlayers(Frame f)
+        {
+            var playerFilter = f.Unsafe.FilterStruct<Filter>();
+            var playerStruct = default(Filter);
+
+            while (playerFilter.Next(&playerStruct))
+            {
+                f.Destroy(playerStruct.entityRef);
             }
         }
     }

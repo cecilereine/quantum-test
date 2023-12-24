@@ -46,12 +46,13 @@ namespace QuantumSoccerTest
 
         private IEnumerator UpdateSceneLoadingProgress()
         {
-            Debug.Log("scene is loading");
             while (!sceneLoadingOp.isDone)
             {
                 yield return null;
             }
-            Debug.Log("scene has loaded");
+
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName(gameplaySceneName));
+
             StartMatch();
             UnloadMainMenu();
         }
