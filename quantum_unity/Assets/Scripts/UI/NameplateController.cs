@@ -8,11 +8,12 @@ namespace QuantumSoccerTest.UI
         [SerializeField] private TextMeshProUGUI txtNickname;
         private Camera mainCam;
 
-        public void SetNameplate()
+        public void SetNameplate(string nickname)
         {
             mainCam = Camera.main;
-            txtNickname.text = ConnectionManager.Client.NickName;
+            txtNickname.text = nickname;
         }
+
         private void LateUpdate()
         {
             if (mainCam != null)

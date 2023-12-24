@@ -7,6 +7,7 @@ namespace QuantumSoccerTest
     public class PlayerView : MonoBehaviour
     {
         [SerializeField] private EntityView entityView;
+        [SerializeField] private NameplateController nameplateController;
 
         public void Initialize()
         {
@@ -15,6 +16,8 @@ namespace QuantumSoccerTest
             var playerData = f.GetPlayerData(playerRef);
 
             // set nickname in-game
+            nameplateController.SetNameplate(playerData.NickName);
+
             var scoreboardController = GameObject.FindObjectOfType<ScoreboardController>();
             if (scoreboardController != null)
             {

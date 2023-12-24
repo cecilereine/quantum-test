@@ -240,18 +240,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 916137491280925387}
-        m_TargetAssemblyTypeName: QuantumSoccerTest.UI.NameplateController, Assembly-CSharp
-        m_MethodName: SetNameplate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   OnEntityDestroyed:
     m_PersistentCalls:
       m_Calls: []
@@ -268,6 +256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityView: {fileID: 2991508324469565864}
+  nameplateController: {fileID: 916137491280925387}
 --- !u!1 &3321877911123629059
 GameObject:
   m_ObjectHideFlags: 0

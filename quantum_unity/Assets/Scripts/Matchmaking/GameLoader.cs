@@ -27,7 +27,8 @@ namespace QuantumSoccerTest
 
         private void StartMatch()
         {
-            Debug.Log("Start match");
+            // randomize seed 
+            runtimeConfig.Seed = Random.Range(int.MinValue, int.MaxValue);
             var param = new QuantumRunner.StartParameters
             {
                 RuntimeConfig = runtimeConfig,
