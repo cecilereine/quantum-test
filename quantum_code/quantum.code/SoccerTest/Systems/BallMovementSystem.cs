@@ -18,7 +18,7 @@ namespace Quantum.SoccerTest.Systems
             var distance = FPVector3.Distance(ballTrans->Position, playerTrans->Position);
             if(distance <= 3)
             {
-                ballPhysicsBody->AddForce(-FPVector3.Forward * ballProp->ballPushPower);
+                ballPhysicsBody->AddForce(-FPVector3.Forward * 500);
                 playerLink->isBlockEnabled = false;
             }
         }

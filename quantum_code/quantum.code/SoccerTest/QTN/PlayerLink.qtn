@@ -3,4 +3,5 @@ component PlayerLink
 	FP score;
 	bool isBlockEnabled;
 	player_ref Player;
+	FPVector3 spawnPosition;
 }

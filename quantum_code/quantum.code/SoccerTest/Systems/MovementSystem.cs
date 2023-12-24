@@ -1,4 +1,6 @@
-﻿namespace Quantum.SoccerTest
+﻿using static Quantum.SoccerTest.MovementSystem;
+
+namespace Quantum.SoccerTest
 {
     public unsafe class MovementSystem : SystemMainThreadFilter<MovementSystem.Filter>, IKCCCallbacks3D, ISignalOnRoundReset
     {
@@ -36,9 +38,14 @@
 
         public void OnRoundReset(Frame f, EntityRef player)
         {
-            var playerLink = f.Unsafe.GetPointer<PlayerLink>(player);
-            playerLink->isBlockEnabled = true;
-            // TODO: reset player position here
+            var playerFilter = f.Unsafe.FilterStruct<Filter>();
+            var playerStruct = default(Filter);
+
+            while (playerFilter.Next(&playerStruct))
+            {
+                playerStruct.playerLink->isBlockEnabled = true;
+                playerStruct.transform->Position = playerStruct.playerLink->spawnPosition;
+            }
         }
     }
 }

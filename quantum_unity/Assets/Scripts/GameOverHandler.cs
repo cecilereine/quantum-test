@@ -26,8 +26,7 @@ namespace QuantumSoccerTest
         {
             //TODO: add ui 
             ConnectionManager.Client.Disconnect();
-            QuantumRunner.ShutdownAll(true);
-            //LoadMenu();
+            QuantumRunner.ShutdownAll();
         }
 
         private IEnumerator LoadMainSceneProgress()

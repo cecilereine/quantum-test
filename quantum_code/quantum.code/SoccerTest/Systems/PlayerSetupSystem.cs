@@ -9,7 +9,7 @@ namespace Quantum.SoccerTest.Systems
             var data = f.GetPlayerData(playerRef);
             var prototype = f.FindAsset<EntityPrototype>(data.CharacterPrototype.Id.Value);
             var entity = f.Create(prototype);
-            
+
             var playerLink = new PlayerLink()
             {
                 isBlockEnabled = true,
@@ -49,10 +49,16 @@ namespace Quantum.SoccerTest.Systems
             var rndX = f.RNG->NextInclusive(minX, maxX);
             var rndZ = f.RNG->NextInclusive(minZ, maxZ);
 
+            var newPos = new FPVector3(rndX, y, rndZ);
+
             if (f.Unsafe.TryGetPointer<Transform3D>(entity, out var playerTransform))
             {
-                playerTransform->Position.X = rndX;
-                playerTransform->Position = new FPVector3(rndX, y, rndZ);
+                playerTransform->Position = newPos;
+            }
+
+            if (f.Unsafe.TryGetPointer<PlayerLink>(entity, out var playerLink))
+            {
+                playerLink->spawnPosition = newPos;
             }
         }
     }
