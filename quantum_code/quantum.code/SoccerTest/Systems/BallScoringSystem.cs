@@ -18,8 +18,6 @@
                 f.Signals.OnRoundReset(ball.lastPlayerToHit);
                 f.Events.OnScoreUpdated(playerLink->Player, playerLink->score);
 
-                // TODO: reset players as well
-
                 if (playerLink->score >= 3)
                 {
                     f.Events.OnGameOver();

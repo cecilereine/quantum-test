@@ -12,8 +12,8 @@ namespace Quantum.SoccerTest.Systems
             
             var playerLink = new PlayerLink()
             {
-                Player = playerRef,
                 isBlockEnabled = true,
+                Player = playerRef,
             };
             f.Add(entity, playerLink);
             SpawnPlayerAtRandomPos(f, entity);
@@ -21,7 +21,7 @@ namespace Quantum.SoccerTest.Systems
             // spawn ball
             var playerCount = f.ComponentCount<PlayerLink>();
             Log.Debug("no of players: " + playerCount);
-            if (playerCount > 0)
+            if (playerCount > 1)
             {
                 SpawnBall(f);
             }

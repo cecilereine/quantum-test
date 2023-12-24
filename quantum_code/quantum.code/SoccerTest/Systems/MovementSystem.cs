@@ -1,6 +1,6 @@
 ﻿namespace Quantum.SoccerTest
 {
-    public unsafe class MovementSystem : SystemMainThreadFilter<MovementSystem.Filter>, ISignalOnRoundReset, IKCCCallbacks3D
+    public unsafe class MovementSystem : SystemMainThreadFilter<MovementSystem.Filter>, IKCCCallbacks3D, ISignalOnRoundReset
     {
         public struct Filter
         {
@@ -38,8 +38,7 @@
         {
             var playerLink = f.Unsafe.GetPointer<PlayerLink>(player);
             playerLink->isBlockEnabled = true;
-            // TODO: reset player position
-
+            // TODO: reset player position here
         }
     }
 }
