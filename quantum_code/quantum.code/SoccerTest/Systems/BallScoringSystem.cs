@@ -21,7 +21,7 @@
                 var data = f.GetPlayerData(playerLink->Player);
                 data.WinCount++;
 
-                if (playerLink->score >= 1)
+                if (playerLink->score >= 3)
                 {
                     f.Events.OnGameOver(playerLink->Player, data.WinCount);
                 }
