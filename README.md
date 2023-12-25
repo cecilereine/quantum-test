@@ -1,3 +1,4 @@
+Features:
 - matchmaking: when play is pressed, players are directed to an existing match or a new match if none is available
 - wins UI is persistent
 - basic soccer gameplay + game environment
